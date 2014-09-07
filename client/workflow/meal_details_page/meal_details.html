@@ -1,0 +1,163 @@
+<template name="meal_details_page">
+  <div class="col-md-12">
+    <div class="col-md-8">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="col-md-12">
+                {{#with meal}}
+                  <h2>{{name}}</h2>
+                    <table>
+                      <tr>
+                        <td class="col-md-2"><h3>When: </h3></td>
+                        <td>{{date}}, {{time}}</td>
+                      </tr>
+                      <tr>
+                        <td class="col-md-2"><h3>Where:</h3>  </td>
+                        <td>
+                          <address>
+                            {{street}}<br>
+                            {{city}}, {{state}} {{zipcode}}<br>
+                          </address>
+                        </td>
+                      </tr>
+                    </table>
+                {{/with}}
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3>Ingredient List {{#if owner}} <button class="btn btn-xs btn-success pull-right addIngredientBtn">add Ingredient</button> {{/if}}</h3>
+            <p>Please RSVP by selecting something to bring</p>
+            <ul type="none">
+              {{#if ingredients}}
+                {{#each ingredients}}
+                  <li>
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="col-md-10">
+                          <div class="ingredientCopy">
+                              {{#if guestBringing}}
+                                      <em><h4>{{guestBringing}} is bringing {{quantity}} {{ingredient}}</h4></em>
+                              {{else}}
+                              <h4>{{quantity}} {{ingredient}}</h4>
+                              {{/if}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        {{#if guestBringing}}
+                        {{#if userIsGuestBringing}}
+                        <button id="{{ingredient}}" class="btn btn-danger unpick pull-right">Cancel</button>
+                        {{/if}}{{else}}
+                        <button  id="{{ingredient}}" class="btn btn-success pick pull-right">Pick Me!</button>
+                        {{/if}}
+                      </div>
+                    </div>
+                  </li><br>
+                {{/each}}
+              {{/if}}
+              {{#if addIngredient}}
+              <div class="col-md-2">
+                <input type="text" class=" quantity form-control" placeholder="Quantity">
+              </div>
+              <div class="col-md-5">
+                <input type="text" class=" ingredient form-control" placeholder="Ingredient"><br>
+              </div>
+              <button class="btn btn-large btn-success newIngredient">Add Item</button>{{/if}}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        {{#if owner}} 
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3>Guest List</h3>
+              <table>
+                {{#each guests}}
+                  {{> guest}}
+                {{/each}}
+              </table>
+              <div class="col-md-3"><input type="text" class=" firstName form-control" onfocus="this.value = ''" placeholder="First Name"></div>
+              <div class="col-md-3"><input type="text" class=" lastName form-control" onfocus="this.value = ''" placeholder="Last Name"></div>
+              <div class="col-md-4"><input id="email" class=" email form-control" type="text" onfocus="this.value = ''" placeholder="Email"></div>
+              <div class="col-md-1"><button class="btn btn-large btn-success addGuest" onfocus="this.value = ''">Add Guest</button></div>
+            </div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+    <div class="col-md-4 pull-right">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="col-md-12">
+                <h3>Menu</h3>
+                {{> menu_details}}
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</template>
+
+
+
+
+<template name="menu_details">
+      <div class="col-md-12">
+        <h4>Appetizers {{#if owner}} <button class="btn btn-xs btn-success pull-right addAppetizerBtn">add Appetizer</button> {{/if}}</h4>
+        {{#each appetizer}}
+          <ul type="none"  class="">
+            <li class="">{{dishName}}</li>
+          </ul>
+        {{/each}}
+        {{#if addAppetizer}}<input id="dishInput" class="dish form-control" type="text" placeholder="Dish"> <br>
+                <button class="btn btn-large btn-success newAppetizer">Add Dish</button>{{/if}}
+      </div>
+    <div class="col-md-12">
+      <h4>Entree {{#if owner}} <button class="btn btn-xs btn-success pull-right addEntreeBtn">add Entree</button> {{/if}}</h4>
+      {{#each entree}}
+        <ul type="none" class="">
+          <li class="">{{dishName}}</li>
+        </ul>
+      {{/each}}
+      {{#if addEntree}}<input id="dishInput" class="dish form-control" type="text" placeholder="Dish"> <br>
+              <button class="btn btn-large btn-success newEntree">Add Dish</button>{{/if}}
+    </div>
+    <div class="col-md-12">
+      <h4>Sides {{#if owner}} <button class="btn btn-xs btn-success pull-right addSideBtn">add Side</button> {{/if}}</h4>
+      {{#each side}}
+        <ul type="none"  class="">
+          <li class="">{{dishName}}</li>
+        </ul>
+      {{/each}}
+      {{#if addSide}}<input id="dishInput" class="dish form-control" type="text" placeholder="Dish"> <br>
+              <button class="btn btn-large btn-success newSide">Add Dish</button>{{/if}}
+    </div>
+    <div class="col-md-12">
+      <h4>Dessert {{#if owner}} <button class="btn btn-xs btn-success pull-right addDessertBtn">add Dessert</button> {{/if}}</h4>
+      {{#each dessert}}
+        <ul type="none"  class="">
+          <li class="">{{dishName}}</li>
+        </ul>
+      {{/each}}
+      {{#if addDessert}}<input id="dishInput" class="dish form-control" type="text" placeholder="Dish"> <br>
+              <button class="btn btn-large btn-success newDessert">Add Dish</button>{{/if}}
+    </div>
+    <div class="col-md-12">
+      <h4>Beverages {{#if owner}} <button class="btn btn-xs btn-success pull-right addBeverageBtn">add Beverage</button> {{/if}}</h4>
+      {{#each beverage}}
+        <ul type="none" class="">
+          <li class="">{{dishName}}</li>
+        </ul>
+      {{/each}}
+      {{#if addBeverage}}<input id="dishInput" class="dish form-control" type="text" placeholder="Dish"> <br>
+              <button class="btn btn-large btn-success newBeverage">Add Dish</button>{{/if}}
+    </div>
+</template>

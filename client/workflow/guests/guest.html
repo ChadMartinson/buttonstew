@@ -1,0 +1,27 @@
+<!-- Guest Panel -->
+<template name="guest_panel">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>Guest List</h3>
+          <table>
+            {{#each guests}}
+              {{> guest}}
+            {{/each}}
+          </table>
+          <div class="col-md-3"><input type="text" class=" firstName form-control" onfocus="this.value = ''" placeholder="First Name"></div>
+          <div class="col-md-3"><input type="text" class=" lastName form-control" onfocus="this.value = ''" placeholder="Last Name"></div>
+          <div class="col-md-4"><input id="email" class=" email form-control" type="text" onfocus="this.value = ''" placeholder="Email"></div>
+          <div class="col-md-1"><button class="btn btn-large btn-success addGuest" onfocus="this.value = ''">Add Guest</button></div>
+        </div>
+      </div>
+</template>
+
+<!-- Guest -->
+<template name="guest">
+  <tr>
+    <td class="col-md-2"><h4>Name:</h4></td>
+    <td>{{firstName}} {{lastName}}</td>
+    <td class="col-md-2"><h4>Email: </h4></td>
+    <td>{{email}}</td>
+  </tr>
+</template>

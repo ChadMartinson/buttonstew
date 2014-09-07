@@ -1,0 +1,45 @@
+<template name="meals_page">
+      <div class="col-md-12">
+      {{#if mealDetails}}
+        {{> meal_details_page}}
+      {{else}}
+      {{#if new_meal}}
+        {{> new_meal_form}}
+      {{else}}
+      {{#if openMeal}}
+        {{> edit_meal}}
+      {{else}}
+        <h2>Meals</h2>
+        <div class="row">
+          <button class="btn btn-block btn-success new_meal">Let's Plan A Meal</button>
+        </div>
+          {{#if hasMeals}}
+            {{#if isWelcome}}
+                <table id="meals" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Place</th>
+                      <th>Time</th>
+                      <th class="button_col"></th>
+                      {{#if owner}}
+                      <th class="button_col"></th>
+                      <th class="button_col"></th>
+                      {{/if}}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each meals}}
+                      {{> meal_row}}
+                    {{/each}}
+                  </tbody>
+                </table>
+              {{else}}
+              <p>You currently have no meals planned with your friends.</p>
+            {{/if}}
+          {{/if}}
+          {{/if}}
+          {{/if}}
+          {{/if}}
+      </div>
+</template>

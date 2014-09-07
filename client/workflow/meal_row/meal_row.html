@@ -1,0 +1,11 @@
+<template name="meal_row">
+  <tr>
+    <td class="mealDetails">{{date}}</td>
+    <td class="mealDetails">{{street}}<br>{{city}}, {{state}}</td>
+    <td class="mealDetails">{{time}}</td>
+    <td class="button-col"><button class="mealDetails btn btn-xs btn-info">Details</button></td>
+    {{#if owner}}
+    <td class="button_col"><button class="deleteMeal btn btn-danger btn-xs">Delete</button></td>
+    {{/if}}
+  </tr>
+</template>

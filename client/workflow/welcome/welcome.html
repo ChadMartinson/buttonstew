@@ -1,0 +1,15 @@
+<template name="welcome">
+  {{#if logged_in}}
+    {{#if selected}}
+      {{> meal_details_page}}
+    {{else}}
+      {{> meals_page}}
+    {{/if}}
+  {{else}}
+  {{#if hash}}
+    {{> new_guest}}
+  {{else}}
+    {{> home_page}}
+  {{/if}}
+  {{/if}}
+</template>

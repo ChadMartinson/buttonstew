@@ -1,0 +1,20 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+standard-app-packages
+accounts-ui
+accounts-password
+mrt:bootstrap-simplex@0.0.2
+nooitaf:semantic-ui@0.19.0
+underscore
+deepwell:bootstrap-datepicker2
+mrt:bootstrap-3-timepicker
+scmart:jquery-timepicker
+jquery
+npm
+email
+accounts-base
+cmather:handlebars-server
+

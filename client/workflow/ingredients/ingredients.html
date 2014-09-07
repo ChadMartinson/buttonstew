@@ -1,0 +1,27 @@
+<!-- Ingredient Panel -->
+<template name="ingredient_panel">
+  <h2>Ingredients</h2>
+    <h4>What should we have our guests bring?</h4>
+      <ul class="list-group">
+        {{#each ingredients}}
+          {{> ingredient}}
+        {{/each}}
+      </ul>
+      <div class="col-md-5">
+        <label class="smallgray">Item</label><br>
+        <input type="text" class=" quantity form-control" onfocus="this.value = ''" placeholder="Quantity"><br>
+      </div>
+      <div class="col-md-8">
+        <input type="text" class=" ingredient form-control" onfocus="this.value = ''" placeholder="Ingredient"><br>
+      </div>
+      <div class="col-md-10">
+        <button class="btn btn-large btn-success addIngredient">Add Item</button>
+      </div>
+</template>
+
+<!-- Ingredient -->
+<template name="ingredient">
+  <li class="list-group-item">{{quantity}}:  {{ingredient}}
+  <span id="deleteIngredient" class="glyphicon glyphicon-remove-sign pull-right"></span>
+  </li>
+</template>

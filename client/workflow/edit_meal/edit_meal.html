@@ -1,0 +1,107 @@
+<template name="edit_meal">
+<div class="col-md-12">
+  <div class="panel panel-default">
+    <div class="panel-body">
+    <h2>Menu</h2>
+    <p>What are we going to be cooking?</p>
+      <div class="col-md-2">
+        <div class="col-md-12">
+          <h3>Appetizers</h3>
+            <ul type="none"  class="list-group">
+            {{#each appetizer}}
+              <li class=""><span id="deleteDish" class="glyphicon glyphicon-trash pull-right"></span>{{dishName}}</li>
+            {{/each}}
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="col-md-12">
+          <h3>Entree</h3>
+            <ul type="none" class="list-group">
+            {{#each entree}}
+              <li class=""><span id="deleteDish" class="glyphicon glyphicon-trash pull-right"></span>{{dishName}}</li>
+              {{/each}}
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="col-md-12">
+          <h3>Sides</h3>
+            <ul type="none"  class="list-group">
+            {{#each side}}
+              <li class=""><span id="deleteDish" class="glyphicon glyphicon-trash pull-right"></span>{{dishName}}</li>
+              {{/each}}
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="col-md-12">
+          <h3>Dessert</h3>
+            <ul type="none"  class="list-group">
+            {{#each dessert}}
+              <li class=""><span id="deleteDish" class="glyphicon glyphicon-trash pull-right"></span>{{dishName}}</li>
+              {{/each}}
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="col-md-12">
+          <h3>Beverages</h3>
+            <ul type="none" class="list-group">
+            {{#each beverage}}
+              <li class=""><span id="deleteDish" class="glyphicon glyphicon-trash pull-right"></span>{{dishName}}</li>
+              {{/each}}
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="col-md-12">
+          <form>
+              <label for="categoryInput" class="smallgray">Category</label>
+                <select class="category form-control" id="categoryInput" placeholder="Category">
+                   <option>Appetizer</option>
+                   <option>Entree</option>
+                   <option>Side</option>
+                   <option>Dessert</option>
+                   <option>Beverage</option>
+                </select> <br>
+              <label for="dishInput" class="smallgray">Dish</label><br>
+                <input id="dishInput" class="dish form-control" type="text" placeholder="Dish"> <br>
+                <button class="btn btn-large btn-success addDish">Add Dish</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-8">
+  <div class="panel panel-default">
+    <div class="panel-body">
+        <div class="col-md-12">
+          <h2>Guests</h2>
+            <h4>Who should we invite?</h4>
+              <div class="table-responsive">
+                <table class="table">
+                  {{#each guests}}
+                    <tr>
+                      <td class="col-md-5"><h4>{{firstName}} {{lastName}}</h4></td>
+                      <td class="col-md-5"><p>{{email}}</p></td>
+                      <td class="col-md-2"><span id="deleteGuest" class="glyphicon glyphicon-trash pull-right"></span></td>
+                    </tr>
+                  {{/each}}
+                </table>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- <div class="col-md-4">{{> menu_panel}}</div> -->
+    <!-- <div class="col-md-4">{{> guest_panel}}</div> -->
+    <!-- <div class="col-md-4">{{> ingredient_panel}}</div> -->
+  <button class="btn btn-large btn-danger invite pull-right">Send Invitations</button>
+  <div class="col-md-1 pull-right"></div>
+  <button class="btn btn-large btn-success goToMeals pull-right">Back to Meals</button>
+
+  </div>
+</template>
+
+
