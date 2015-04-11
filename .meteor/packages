@@ -13,8 +13,7 @@ deepwell:bootstrap-datepicker2
 mrt:bootstrap-3-timepicker
 scmart:jquery-timepicker
 jquery
-npm
+
 email
 accounts-base
 cmather:handlebars-server
-

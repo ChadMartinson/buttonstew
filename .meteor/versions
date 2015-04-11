@@ -38,7 +38,6 @@ mrt:bootstrap-3-timepicker@0.2.5
 mrt:bootstrap-simplex@0.0.2
 nooitaf:semantic-ui@0.19.1
 npm-bcrypt@0.7.7
-npm@0.0.0
 observe-sequence@1.0.2
 ordered-dict@1.0.0
 random@1.0.0
